@@ -1,0 +1,91 @@
+@baseUrl = http://localhost:8080/api/v1
+
+### Health
+GET http://localhost:8080/health
+
+### Create Category
+POST {{baseUrl}}/categories
+Content-Type: application/json
+
+{
+  "name": "Electronics",
+  "description": "Consumer electronics"
+}
+
+### List Categories
+GET {{baseUrl}}/categories
+
+### Get Category by ID
+GET {{baseUrl}}/categories/1
+
+### Update Category
+PUT {{baseUrl}}/categories/1
+Content-Type: application/json
+
+{
+  "name": "Electronics and Gadgets",
+  "description": "Updated description"
+}
+
+### Delete Category
+DELETE {{baseUrl}}/categories/1
+
+### Create Product
+POST {{baseUrl}}/products
+Content-Type: application/json
+
+{
+  "name": "Wireless Mouse",
+  "description": "2.4Ghz ergonomic mouse",
+  "sku": "MSE-001",
+  "price": 29.90,
+  "stock": 10,
+  "category_id": 1
+}
+
+### List Products
+GET {{baseUrl}}/products
+
+### Get Product by ID
+GET {{baseUrl}}/products/1
+
+### Update Product
+PUT {{baseUrl}}/products/1
+Content-Type: application/json
+
+{
+  "name": "Wireless Mouse Pro",
+  "description": "Updated mouse description",
+  "sku": "MSE-001",
+  "price": 34.90,
+  "category_id": 1
+}
+
+### Delete Product
+DELETE {{baseUrl}}/products/1
+
+### Get Product Stock
+GET {{baseUrl}}/products/1/stock
+
+### Register Inbound Movement
+POST {{baseUrl}}/inventory/inbound
+Content-Type: application/json
+
+{
+  "product_id": 1,
+  "quantity": 20,
+  "description": "Initial stock load"
+}
+
+### Register Outbound Movement
+POST {{baseUrl}}/inventory/outbound
+Content-Type: application/json
+
+{
+  "product_id": 1,
+  "quantity": 3,
+  "description": "Order #A-1024"
+}
+
+### List Product Movements
+GET {{baseUrl}}/products/1/movements
