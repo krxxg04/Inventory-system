@@ -31,7 +31,7 @@ func (s *ProductService) Create(
 	ctx context.Context,
 	name, description, sku string,
 	price float64,
-stock int64,
+	stock int64,
 	categoryID uint,
 ) (*product.Product, error) {
 	name = strings.TrimSpace(name)
